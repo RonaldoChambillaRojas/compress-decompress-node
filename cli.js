@@ -1,6 +1,7 @@
 // cli.js
 const fs = require('fs');
 const path = require('path');
+const { CLIENT_RENEG_LIMIT } = require('tls');
 
 // Función para leer un archivo de texto en UTF-8
 function readTextFile(filePath) {
@@ -16,6 +17,8 @@ function readTextFile(filePath) {
     console.log('Ruta:', path.resolve(filePath));
     console.log('Tamaño:', buffer.length, 'bytes');
     console.log('Primeros 100 caracteres:\n', text.slice(0, 100));
+    console.log('\n--- Vista de los bytes ---');
+    console.log(buffer);
 
     // 4️ Devolvemos ambos (texto y buffer) por si los necesitamos luego
     return { buffer, text };
